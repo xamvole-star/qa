@@ -1,30 +1,11 @@
 package lssn7;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import lssn7.components.TestBase;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-    public class RegistrationWithPageObjectJavaTest {
-        RegistrationPage_DemoQa registrationPageDemoQa = new RegistrationPage_DemoQa();
-
-        @BeforeAll
-        static  void SetupBrowser(){
-            Configuration.browserSize = "1920x1200";
-            Configuration.holdBrowserOpen = true;
-            Configuration.timeout = 10000;
-            Configuration.baseUrl = "https://demoqa.com";
-            Configuration.pageLoadStrategy = "eager";
-
-//todo разобраться с обходом автоматизации гугла, не работает blink
-            ChromeOptions options = new ChromeOptions(); // создаем новый объект для обхода ботов
-            options.addArguments("--disable-blink-features=AutomationControlled");
-            options.setCapability("webSocketUrl", false);
-            Configuration.browserCapabilities = options;
-        }
+    public class RegistrationWithPageObjectJavaTest extends TestBase {
 
         @Test
         void testers() {
@@ -32,13 +13,12 @@ import static com.codeborne.selenide.Selenide.*;
             String userEmail = "IvanovIvanIvanovich@mail.ru";
             String userNumber = "1234567890";
 
-            registrationPageDemoQa.openPage();
-            registrationPageDemoQa.setFirstName(userName);
-            registrationPageDemoQa.setLastName();
-            registrationPageDemoQa.setUserEmail(userEmail);
-            registrationPageDemoQa.setUserNumber(userNumber);
-
-
+            registrationPageDemoQa
+            .openPage()
+            .setFirstName(userName)
+            .setLastName()
+            .setUserEmail(userEmail)
+            .setUserNumber(userNumber);
 
             $("#gender-radio-1").click();
             $("#dateOfBirthInput").click();

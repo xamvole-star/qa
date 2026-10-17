@@ -9,24 +9,34 @@ public class RegistrationPage_DemoQa {
     private SelenideElement lastUserNamber = $("#userNumber");
 
 
- public void openPage(){
+ public RegistrationPage_DemoQa openPage(){
+
      open("/automation-practice-form");
+     return this;
     }
 
- public void setFirstName(String value){
+ public RegistrationPage_DemoQa setFirstName(String value){
+
      $("#firstName").setValue(value);
+     return this;
  }
 
-public void setLastName(){
-    $("#lastName").setValue("Ivanov2");
+public RegistrationPage_DemoQa setLastName(){
+
+     $("#lastName").setValue("Ivanov2");
+     return this;
 }
 
-public void setUserEmail(String value){
-    $("#userEmail").setValue(value);
+public RegistrationPage_DemoQa setUserEmail(String value){
+
+     $("#userEmail").setValue(value);
+     return this;
     }
 
-public void setUserNumber(String value){
+public RegistrationPage_DemoQa setUserNumber(String value){
+
      lastUserNamber.setValue(value);
+     return this;
     }
 
 
