@@ -49,9 +49,10 @@ public class RegistrationPage_DemoQa {
         return this;
     }
 
-    public RegistrationPage_DemoQa verifyTest(){
-        resultRegistration.verifyModalApperance();
-        return this;
-    }
+//    public RegistrationPage_DemoQa verifyTest(){
+////        resultRegistration.verifyModalApperance();
+//
+//        return this;
+//    }
 
 }

@@ -47,8 +47,10 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
 
         $("#submit").click();
 //
-//        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        registrationPageDemoQa.verifyTest();
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+//        registrationPageDemoQa.verifyTest();
+
+        $(".table-responsive").$(byText)
 
         //  $("#root").hover().click(); // todo разобраться как закрыть это окно
     }
