@@ -3,11 +3,7 @@ package lssn7;
 import lssn7.components.TestBase;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
-
 public class RegistrationWithPageObjectJavaTest extends TestBase {
-
     @Test
     void testers() {
         String userName = "Ivan";
@@ -17,6 +13,14 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
         String day = "17";
         String month = "May";
         String year = "1958";
+        String address = "Moscow city, Lenina 244 /45";
+        String state = "Haryana";
+        String city = "Karnal";
+        String path = "pic/photo_202623.jpg";
+        String gender = "1";
+        String hobbySports = "1";
+        String hobbyReading = "2";
+        String hobbyMusic = "3";
 
         registrationPageDemoQa
                 .openPage()
@@ -27,30 +31,18 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
                 .setDate(day, month, year)
                 .subjectsInput("Computer Science")
                 .subjectsInput("English")
-                .subjectsInput("Math");
+                .subjectsInput("Math")
+                .setAdress(address)
+                .setState(state)
+                .setCity(city)
+                .uploadPicture(path)
+                .setGender(gender)
+                .setHobby(hobbySports)
+                .setHobby(hobbyReading)
+                .setHobby(hobbyMusic)
+                .submit()
+                .verifyTest("Thanks for submitting the form");
 
-        $("#gender-radio-1").click();
-
-        $("#hobbies-checkbox-1").click();
-        $("#hobbies-checkbox-2").click();
-        $("#hobbies-checkbox-3").click();
-
-        $("#uploadPicture").uploadFromClasspath("pic/photo_202623.jpg");
-
-        $("#currentAddress").setValue("Moscow sity, Lenina 244 /45");
-
-        $("[class='css-19bb58m']").click();
-        $("#react-select-3-option-2").shouldHave(text("Haryana")).click();
-
-        $("#react-select-4-input").click();
-        $("#react-select-4-option-0").shouldHave(text("Karnal")).click();
-
-        $("#submit").click();
-//
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-//        registrationPageDemoQa.verifyTest();
-
-        $(".table-responsive").$(byText)
 
         //  $("#root").hover().click(); // todo разобраться как закрыть это окно
     }
