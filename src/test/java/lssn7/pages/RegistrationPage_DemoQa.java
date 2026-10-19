@@ -1,18 +1,20 @@
-package lssn7;
+package lssn7.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import lssn7.components.Calendar;
-import lssn7.components.ResultRegistration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage_DemoQa {
     private SelenideElement lastUserNumber = $("#userNumber");
     Calendar calendar = new Calendar();
-    ResultRegistration resultRegistration = new ResultRegistration();
+
 
     public RegistrationPage_DemoQa openPage() {
         open("/automation-practice-form");
+        // Удаляем рекламные баннеры
+//      executeJavaScript("$('#fixedban').remove(); $('footer').remove();");
         return this;
     }
 
@@ -48,7 +50,7 @@ public class RegistrationPage_DemoQa {
         return this;
     }
 
-    public RegistrationPage_DemoQa setAdress(String value) {
+    public RegistrationPage_DemoQa setAddress(String value) {
         $("#currentAddress").setValue(value);
         return this;
     }
@@ -61,7 +63,8 @@ public class RegistrationPage_DemoQa {
 
     public RegistrationPage_DemoQa setCity(String value) {
         $("#react-select-4-input").click();
-        $$("div[id^='react-select-4-option']").findBy(text(value)).click();        return this;
+        $$("div[id^='react-select-4-option']").findBy(text(value)).click();
+        return this;
     }
 
     public RegistrationPage_DemoQa uploadPicture(String value) {
@@ -78,9 +81,10 @@ public class RegistrationPage_DemoQa {
         $("#hobbies-checkbox-" + value).click();
         return this;
     }
-    public ResultRegistration submit() {
+
+    public RegistrationPage_DemoQa submit() {
         $("#submit").click();
-        return resultRegistration;
+        return this;
     }
 
 }

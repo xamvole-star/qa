@@ -1,16 +1,18 @@
-package lssn7.components;
+package lssn7;
 
 import com.codeborne.selenide.Configuration;
-import lssn7.RegistrationPage_DemoQa;
+import lssn7.components.ResultRegistration;
+import lssn7.pages.RegistrationPage_DemoQa;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBase {
 
-   protected RegistrationPage_DemoQa registrationPageDemoQa = new RegistrationPage_DemoQa();
+    protected RegistrationPage_DemoQa registrationPageDemoQa = new RegistrationPage_DemoQa();
+    protected ResultRegistration resultRegistration = new ResultRegistration();
 
     @BeforeAll
-    static  void SetupBrowser(){
+    static void SetupBrowser() {
         Configuration.browserSize = "1920x1200";
         Configuration.holdBrowserOpen = true; // для отладки
         Configuration.timeout = 10000;
@@ -23,8 +25,6 @@ public class TestBase {
         options.setCapability("webSocketUrl", false);
         Configuration.browserCapabilities = options;
     }
-
-
 
 
 }

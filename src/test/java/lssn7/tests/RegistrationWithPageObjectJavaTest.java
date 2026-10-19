@@ -1,6 +1,6 @@
-package lssn7;
+package lssn7.tests;
 
-import lssn7.components.TestBase;
+import lssn7.TestBase;
 import org.junit.jupiter.api.Test;
 
 public class RegistrationWithPageObjectJavaTest extends TestBase {
@@ -32,7 +32,7 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
                 .subjectsInput("Computer Science")
                 .subjectsInput("English")
                 .subjectsInput("Math")
-                .setAdress(address)
+                .setAddress(address)
                 .setState(state)
                 .setCity(city)
                 .uploadPicture(path)
@@ -40,8 +40,9 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
                 .setHobby(hobbySports)
                 .setHobby(hobbyReading)
                 .setHobby(hobbyMusic)
-                .submit()
-                .verifyTest("Thanks for submitting the form");
+                .submit();
+
+        resultRegistration.verifyTest("Thanks for submitting the form");
 
 
         //  $("#root").hover().click(); // todo разобраться как закрыть это окно
