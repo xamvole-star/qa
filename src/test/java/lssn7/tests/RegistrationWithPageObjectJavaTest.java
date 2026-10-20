@@ -3,9 +3,12 @@ package lssn7.tests;
 import lssn7.TestBase;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
 public class RegistrationWithPageObjectJavaTest extends TestBase {
     @Test
     void testers() {
+        //variables for filling out the form
         String userName = "Ivan";
         String userEmail = "IvanovIvanIvanovich@mail.ru";
         String userNumber = "1234567890";
@@ -21,6 +24,15 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
         String hobbySports = "1";
         String hobbyReading = "2";
         String hobbyMusic = "3";
+
+        //variables for checks todo сделать потом списком или массивом для красоты
+        String studentName = "Student Name";
+        String studentEmail = "Student Email";
+        String studentGender = "Gender";
+        String studentCityAndState = "State and City";
+        String studentAddress = "Address";
+        String formName = "Thanks for submitting the form";
+        String fullName = userName + userLastName;
 
         registrationPageDemoQa
                 .openPage()
@@ -42,9 +54,14 @@ public class RegistrationWithPageObjectJavaTest extends TestBase {
                 .setHobby(hobbyMusic)
                 .submit();
 
-        resultRegistration.verifyTest("Thanks for submitting the form");
+        resultRegistration
+                .verifyTest(formName)
+                .verifyForm(studentName, fullName)
+                .verifyForm(studentEmail, userEmail)
+                .verifyForm(studentCityAndState, state + " " + city)
+                .verifyForm(studentAddress, address);
 
-
+        //  System.out.println("Real size: " + getWebDriver().manage().window().getSize());
         //  $("#root").hover().click(); // todo разобраться как закрыть это окно
     }
 }
