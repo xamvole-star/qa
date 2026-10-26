@@ -6,6 +6,8 @@ import lssn7.pages.RegistrationPage_DemoQa;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
 public class TestBase {
 
     protected RegistrationPage_DemoQa registrationPageDemoQa = new RegistrationPage_DemoQa();
@@ -25,6 +27,4 @@ public class TestBase {
         options.setCapability("webSocketUrl", false);
         Configuration.browserCapabilities = options;
     }
-
-
 }
