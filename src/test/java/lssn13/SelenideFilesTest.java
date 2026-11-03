@@ -30,16 +30,25 @@ public class SelenideFilesTest {
 
 
     @ParameterizedTest(name = "Загрузка картинок на сайт: {0}")
-    @ValueSource(strings = {"src\\test\\resources\\pic\\photo_202623.jpg",
-            "src\\test\\resources\\pic\\photo_202623.jpg",
-            "src\\test\\resources\\pic\\photo_03112026.png"} )
+    @ValueSource(strings = {"src\\test\\resources\\pic\\photo_1_03112026.png",
+            "src\\test\\resources\\pic\\ptica_24921.jpg",
+            "src\\test\\resources\\pic\\photo_03112026.png"})
     void FileUpload(String UrlLoadFile) {
-//        open("https://demoqa.com/automation-practice-form");
-        open("https://blueimp.github.io/jQuery-File-Upload");
+        open("https://autotestsandbox.com/labs/preview-multiple-uploaded-files");
         Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 10000;
         //<input label="Select picture" lang="en" id="uploadPicture" class="form-control" type="file"> css Selector
         $("input[type='file']").uploadFile(new File(UrlLoadFile));
+
+}
+        @Test
+        void uploadMultipleFilesTest() {
+            open("https://autotestsandbox.com/labs/preview-multiple-uploaded-files");
+            Configuration.holdBrowserOpen = true;
+            File file1 = new File("src/test/resources/pic/photo_1_03112026.png");
+            File file2 = new File("src/test/resources/pic/ptica_24921.jpg");
+            File file3 = new File("src/test/resources/pic/photo_03112026.png");
+            $("input[type='file']").uploadFile(file1, file2, file3);
+
     }
 }
 
