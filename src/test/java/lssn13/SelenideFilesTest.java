@@ -1,6 +1,4 @@
-package lssn13;
-
-import com.codeborne.selenide.Browser;
+mport com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -39,15 +37,15 @@ public class SelenideFilesTest {
         //<input label="Select picture" lang="en" id="uploadPicture" class="form-control" type="file"> css Selector
         $("input[type='file']").uploadFile(new File(UrlLoadFile));
 
-}
-        @Test
-        void uploadMultipleFilesTest() {
-            open("https://autotestsandbox.com/labs/preview-multiple-uploaded-files");
-            Configuration.holdBrowserOpen = true;
-            File file1 = new File("src/test/resources/pic/photo_1_03112026.png");
-            File file2 = new File("src/test/resources/pic/ptica_24921.jpg");
-            File file3 = new File("src/test/resources/pic/photo_03112026.png");
-            $("input[type='file']").uploadFile(file1, file2, file3);
+    }
+    @Test
+    void uploadMultipleFilesTest() {
+        open("https://autotestsandbox.com/labs/preview-multiple-uploaded-files");
+        Configuration.holdBrowserOpen = true;
+        File file1 = new File("src/test/resources/pic/photo_1_03112026.png");
+        File file2 = new File("src/test/resources/pic/ptica_24921.jpg");
+        File file3 = new File("src/test/resources/pic/photo_03112026.png");
+        $("input[type='file']").uploadFile(file1, file2, file3);
 
     }
 }
