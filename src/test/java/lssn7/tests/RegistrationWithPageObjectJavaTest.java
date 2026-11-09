@@ -2,17 +2,18 @@ package lssn7.tests;
 
 import lssn7.TestBase;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import lssn14.RandomUtil;
 
 public class RegistrationWithPageObjectJavaTest extends TestBase {
     @Test
     void testers() {
         //variables for filling out the form
-        String userName = "Ivan";
+//        String userName = "Ivan";
+        String userName = RandomUtil.randomString(10);
         String userEmail = "IvanovIvanIvanovich@mail.ru";
         String userNumber = "1234567890";
-        String userLastName = "Ivanov";
+//        String userLastName = "Ivanov";
+        String userLastName = RandomUtil.randomString(20);
         String day = "17";
         String month = "May";
         String year = "1958";

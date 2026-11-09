@@ -1,3 +1,4 @@
+import com.opencsv.CSVReader;
 import lssn12.BaseBrowserSetup;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -7,7 +8,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static com.codeborne.selenide.Selenide.*;
@@ -44,5 +47,19 @@ public class SelenideFilesTest extends BaseBrowserSetup {
         File file3 = new File("src/test/resources/pic/photo_03112026.png");
         $("input[type='file']").uploadFile(file1, file2, file3);
     }
+
+    @Test
+    void csvParselTest() throws Exception {
+        try (
+                InputStream recource = getClass().getResourceAsStream("example/qa_guru.csv");
+                CSVReader reader = new CSVReader(new InputStreamReader(recource))
+        ) {
+            List<String[]> content = reader.readAll();
+            assertThat(content.get(0)[1].contains("lessons"));
+        }
+
+    }
+
+
 }
 
