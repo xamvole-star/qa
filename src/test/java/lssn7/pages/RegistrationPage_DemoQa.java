@@ -3,7 +3,9 @@ package lssn7.pages;
 import com.codeborne.selenide.SelenideElement;
 import lssn7.components.Calendar;
 
-import static com.codeborne.selenide.Condition.text;
+
+import static com.codeborne.selenide.ScrollIntoViewOptions.Block.center;
+import static com.codeborne.selenide.ScrollIntoViewOptions.instant;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -75,7 +77,7 @@ public class RegistrationPage_DemoQa {
     }
 
     public RegistrationPage_DemoQa setState(String value) {
-        setState.click();
+        setState.scrollIntoView(instant().block(center)).click();
         setState.$(byText(value)).click();
         return this;
     }
@@ -105,5 +107,7 @@ public class RegistrationPage_DemoQa {
         submitInput.click();
         return this;
     }
+
+
 
 }

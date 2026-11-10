@@ -23,4 +23,8 @@ public class RandomUtil {
         String saltStr = salt.toString();
         return saltStr;
     }
-}
+
+//    public static String randomEmail(){
+//        return  randomString(length) + "@mail.ru";
+
+    }
