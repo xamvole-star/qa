@@ -21,7 +21,6 @@ public class SelenideTest extends BaseBrowserSetup {
 
         $("[aria-label ='Search GitHub']").click();
         $("[aria-label ='Search GitHub']").setValue("eroshenkoam/allure-example").pressEnter();
-//        $("[aria-label ='Search GitHub']").submit();
 
         $(linkText("eroshenkoam/allure-example")).click();
         $("#issues-tab").click();
