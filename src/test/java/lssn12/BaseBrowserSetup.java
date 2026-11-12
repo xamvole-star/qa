@@ -11,7 +11,7 @@ public class BaseBrowserSetup {
     @BeforeAll
     static void SetupBrowser() {
         Configuration.browserSize = "1920x1200";
-        Configuration.holdBrowserOpen = true; // Только для отладки
+//        Configuration.holdBrowserOpen = true; // Только для отладки
         Configuration.pageLoadStrategy = "eager";
 
         // Создаем объект опций для Chrome

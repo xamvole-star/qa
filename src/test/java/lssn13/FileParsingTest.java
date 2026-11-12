@@ -31,8 +31,8 @@ public class FileParsingTest extends BaseBrowserSetup {
         assertThat(content.excel.getSheetAt(1).getRow(3).getCell(1).toString()).contains("Аникина Ирина  Валерьевна");
         var sheet = content.excel.getSheetAt(1);
         for (int i = 3; i <= sheet.getLastRowNum(); i++) {
-        System.out.println(sheet.getRow(i).getCell(1).toString().trim());
-        //индексация в excel начинается с 1, в java с 0
+            System.out.println(sheet.getRow(i).getCell(1).toString().trim());
+            //индексация в excel начинается с 1, в java с 0
         }
     }
 }

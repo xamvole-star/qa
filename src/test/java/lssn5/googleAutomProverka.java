@@ -1,20 +1,23 @@
 package lssn5;
 
 import com.codeborne.selenide.Configuration;
+import lssn12.BaseBrowserSetup;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class googleAutomProverka {
-
+public class googleAutomProverka extends BaseBrowserSetup {
+    @Disabled
     @Test
     void InvisibleAutomatisation() {
         // Настройка браузера
         Configuration.browser = "chrome";
-        Configuration.holdBrowserOpen =true; // чтобы бразуер не закрылся, для поиска Css селекторов итд
+        Configuration.holdBrowserOpen = true; // чтобы бразуер не закрылся, для поиска Css селекторов итд
         Configuration.pageLoadStrategy = "eager"; //стратегия загрузки, не дожидаемся полной загрузки
 
 //скрыть факт автоматизации //todo допилить, не работает обход
@@ -28,7 +31,16 @@ public class googleAutomProverka {
         $("[aria-label='Найти']").setValue("It`s my life").pressEnter();
         System.out.println("This is the best test"); // suit
         int i = 42;
-        Assertions.assertTrue(i>2);
+        Assertions.assertTrue(i > 2);
 
     }
+
+    @Test
+    void SearchGoogle() {
+        open("https://google.com");
+        $("[aria-label='Найти']").setValue("It`s my life").pressEnter();
+        System.out.println("This is the best test");
+
+    }
+
 }

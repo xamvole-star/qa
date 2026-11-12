@@ -1,7 +1,9 @@
 package autologin;
 
 import com.codeborne.selenide.Configuration;
+import lssn12.BaseBrowserSetup;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -9,8 +11,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class SearchTests {
-
+public class SearchTests extends BaseBrowserSetup {
+    @Disabled
     @BeforeAll
     static void setUp() {
         // Настройка User-Agent и скрытие флага автоматизации

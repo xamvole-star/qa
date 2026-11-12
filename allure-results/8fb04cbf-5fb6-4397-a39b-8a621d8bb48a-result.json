@@ -1,0 +1,191 @@
+{
+  "uuid": "8fb04cbf-5fb6-4397-a39b-8a621d8bb48a",
+  "historyId": "7ff2125ae0464278056ed7ab98518d15",
+  "testCaseId": "[engine:junit-jupiter]/[class:lssn15.StepsTest]/[method:testLambdaStep()]",
+  "testCaseName": "testLambdaStep()",
+  "fullName": "lssn15.StepsTest.testLambdaStep",
+  "titlePath": [
+    "lssn15",
+    "StepsTest"
+  ],
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:lssn15.StepsTest]/[method:testLambdaStep()]"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-CBQ3G36"
+    },
+    {
+      "name": "thread",
+      "value": "24112@DESKTOP-CBQ3G36.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "lssn15.StepsTest"
+    },
+    {
+      "name": "testClass",
+      "value": "lssn15.StepsTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "testLambdaStep"
+    },
+    {
+      "name": "suite",
+      "value": "lssn15.StepsTest"
+    }
+  ],
+  "links": [],
+  "name": "testLambdaStep()",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "",
+  "steps": [
+    {
+      "name": "Открываем главную страницу",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"open\") https://github.com/search",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [
+            {
+              "name": "$(\"webdriver\") create()",
+              "status": "passed",
+              "stage": "finished",
+              "steps": [],
+              "attachments": [],
+              "parameters": [],
+              "start": 1794476695700,
+              "stop": 1794476696486
+            }
+          ],
+          "attachments": [],
+          "parameters": [],
+          "start": 1794476695695,
+          "stop": 1794476701495
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1794476695667,
+      "stop": 1794476701495
+    },
+    {
+      "name": "Переходим в поиск на странице гитхаба",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"[aria-label ='Search GitHub']\") click()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1794476701520,
+          "stop": 1794476701621
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1794476701495,
+      "stop": 1794476701621
+    },
+    {
+      "name": "Ищем репозиторий и жмем ентер",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"[aria-label ='Search GitHub']\") set value(eroshenkoam/allure-example)",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1794476701621,
+          "stop": 1794476701701
+        },
+        {
+          "name": "$(\"[aria-label ='Search GitHub']\") press enter()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1794476701701,
+          "stop": 1794476701732
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1794476701621,
+      "stop": 1794476701732
+    },
+    {
+      "name": "Кликаем по ссылке ремозитория",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"By.linkText: eroshenkoam/allure-example\") click()",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1794476701732,
+          "stop": 1794476704432
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1794476701732,
+      "stop": 1794476704432
+    },
+    {
+      "name": "Проверяем наличае Issue с номером77",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "$(\"with text: #77\") should(exist)",
+          "status": "passed",
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1794476704437,
+          "stop": 1794476704913
+        }
+      ],
+      "attachments": [],
+      "parameters": [],
+      "start": 1794476704433,
+      "stop": 1794476704913
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1794476695657,
+  "stop": 1794476704921
+}
