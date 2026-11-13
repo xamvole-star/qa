@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 public class LabelsTest {
 
-    @Test
+    @Test //статические аннтотации
     @Feature("Issue в репозитории")
     @Story("Создание Issue")
     @Owner("xamvole-star")
@@ -24,14 +24,14 @@ public class LabelsTest {
     }
 
     @Disabled
-    @Test
+    @Test //альтернатива того, что сверху, динамические аннотации, для проверок условий итд
     public void testDynamicLabels() {
         Allure.getLifecycle().updateTest(
                 t -> t.setName("Создание Issue для авторизованного пользователя")
         );
         Allure.feature("Issue в репозитории");
         Allure.story("Создание Issue");
-        Allure.label("owner", "eroshenkoam");
+        Allure.label("owner", "xamvole-star");
         Allure.label("severity", SeverityLevel.CRITICAL.value());
         Allure.link("Testing", "https://testing.github.com");
     }
