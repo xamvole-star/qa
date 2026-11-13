@@ -19,7 +19,7 @@ public class StepsTest extends BaseBrowserSetup {
     private static final String REPO = "[aria-label ='Search GitHub']";
     private static final Integer ISSUE = 77;
 
-    @Test
+    @Test // хорошая читаемость, плохая переиспользуемость
     public void testLambdaStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -38,8 +38,23 @@ public class StepsTest extends BaseBrowserSetup {
         });
         step("Проверяем наличае Issue с номером" + ISSUE, () -> {
 
-            $(withText( "#" + ISSUE)).should(Condition.exist);
+            $(withText("#" + ISSUE)).should(Condition.exist);
         });
     }
+
+    @Test // хорошая переиспользуемость, хуже читаемость, лучше использовать этот подход
+
+    public void testAnnotatedStep() {
+        WebSteps steps = new WebSteps();
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        steps.openMainPage(REPO);
+        steps.searchForRepository(REPO, REPOSITORY);
+        steps.clickOnRepositoryLink(REPOSITORY);
+        steps.shouldSeeIssueWithNumber(ISSUE);
+
+
+    }
+
 
 }
