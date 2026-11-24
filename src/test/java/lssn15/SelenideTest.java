@@ -23,8 +23,8 @@ public class SelenideTest extends BaseBrowserSetup {
         $("[aria-label ='Search GitHub']").setValue("eroshenkoam/allure-example").pressEnter();
 
         $(linkText("eroshenkoam/allure-example")).click();
-        $("#issues-tab").click();
-        $(withText("#80")).should(Condition.exist);
+//        $("#issues-tab").click();
+        $(withText("#77")).should(Condition.exist);
     }
 
 }

@@ -2,6 +2,7 @@ package lssn5;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -20,6 +21,7 @@ public class lssn5 {
 
 
     @Test
+    @DisplayName("Проверка отображения поиска на главной странице GitHub")
     void GithubProverkaLesson3() {
 // Настройка браузера
         Configuration.browser = "chrome";
@@ -44,8 +46,8 @@ public class lssn5 {
         getWebDriver().manage().window().maximize();
         System.out.println("Real size: " + getWebDriver().manage().window().getSize());
 
-        $("[class*='HeaderSearch-module__searchSlot']").shouldHave(text("Search")).click();
-        $("[aria-label*='Search or jump to']").setValue("selenide").pressEnter();
+        $("[aria-label*='Search']").shouldHave(text("Search")).click();
+        $("[aria-label*='Search']").setValue("selenide").pressEnter();
         $("[data-testid='results-list']").$("a[href*='/selenide/selenide']").hover().click();
         $("[alt*='@vinogradoff']").hover().shouldBe(Condition.visible);
     }
