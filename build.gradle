@@ -47,4 +47,24 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnitPlatform()
+    // Передаем системные свойства в JVM тестов
+    systemProperty 'selenide.remote', 'http://localhost:4444/wd/hub'
+}
+
+
+
+tasks.register('simple_test', Test) {
+    useJUnitPlatform() {
+        includeTags("simple")
+
+//указываем  где искать тестовые классы и зависимости, для версий  выше 9.0
+
+        testClassesDirs = sourceSets.test.output.classesDirs
+        classpath = sourceSets.test.runtimeClasspath
+
+        // чтобы Allure сохранял результаты
+        systemProperty 'allure.results.directory', file('build/allure-results').absolutePath
+
+        systemProperty 'selenide.remote', 'http://localhost:4444/wd/hub'
+    }
 }
