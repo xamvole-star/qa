@@ -1,12 +1,6 @@
 package lssn15;
 
-import io.qameta.allure.Allure;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Link;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +14,7 @@ public class LabelsTest {
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Testing", url = "https://testing.github.com")
     @DisplayName("Создание Issue для авторизованного пользователя")
+    @Description("Проверка возможности авторизации...")
     public void testStaticLabels() {
     }
 

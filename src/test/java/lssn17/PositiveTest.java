@@ -26,4 +26,19 @@ public class PositiveTest {
     void test4() {
         assertTrue(true);
     }
+
+    @Test
+    void test5() {
+        assertTrue(true);
+    }
+
+    @Test
+    void test6() {
+        assertTrue(true);
+    }
+
+    @Test
+    void test7() {
+        assertTrue(true);
+    }
 }
