@@ -41,30 +41,35 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:2.0.9'
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-test {
+// Общие настройки для всех тестовых задач, включая test и simple_test.
+tasks.withType(Test).configureEach {
+    // Запускаем тесты через JUnit Platform.
     useJUnitPlatform()
-    // Передаем системные свойства в JVM тестов
-    systemProperty 'selenide.remote', 'http://localhost:4444/wd/hub'
+
+    // Allure сохраняет результаты сюда и при полном запуске, и при запуске по тегу.
+    systemProperty 'allure.results.directory', file('build/allure-results').absolutePath
+
+    // В Jenkins SELENOID_URL задаётся в блоке environment этапа run-test.
+    // При локальном запуске без этой переменной Selenide откроет Chrome на Windows.
+    def remoteUrl = System.getenv('SELENOID_URL')
+    if (remoteUrl != null && !remoteUrl.isBlank()) {
+        systemProperty 'selenide.remote', remoteUrl
+    }
 }
 
-
-
+// Отдельная задача для тестов с аннотацией @Tag("simple").
+// Обычная задача test запускает все тесты, в том числе без тегов.
 tasks.register('simple_test', Test) {
-    useJUnitPlatform() {
-        includeTags("simple")
+    // Указываем Gradle, где лежат скомпилированные тесты и их зависимости.
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
 
-//указываем  где искать тестовые классы и зависимости, для версий  выше 9.0
-
-        testClassesDirs = sourceSets.test.output.classesDirs
-        classpath = sourceSets.test.runtimeClasspath
-
-        // чтобы Allure сохранял результаты
-        systemProperty 'allure.results.directory', file('build/allure-results').absolutePath
-
-        systemProperty 'selenide.remote', 'http://localhost:4444/wd/hub'
+    // Фильтр по тегу действует только внутри задачи simple_test.
+    useJUnitPlatform {
+        includeTags 'simple'
     }
 }
